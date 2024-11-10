@@ -1,14 +1,15 @@
-
 const state = {
     current: window.location.pathname
 }
-
 //hihglight active link
 function HighlightActiveLink(){
-    if (state.current === '/') {
-        document.querySelectorAll('.nav-link').classList.add('active')
+    const links = document.querySelectorAll('.nav-link')
+    links.forEach(link => {
+        if (link.getAttribute('href') === state.current){
+            link.classList.add('active')
         }
-    
+        
+    });
 }
 function init(){
     switch (state.current) {
@@ -29,13 +30,8 @@ function init(){
         case '/search.html':
             console.log("search info");
             break
-                
-            
-            
-    }
+        }
     HighlightActiveLink()
 }
-
-console.log(state.current);
 init()
 
