@@ -3,8 +3,6 @@ const state = {
 }
 async function displayPopularMovies() {
     const {results} = await fetchAPIData('movie/popular')
-    //console.log(results);
-    
     results.forEach(movie =>{
         const div = document.createElement('div')
         div.classList.add('card')
@@ -41,7 +39,6 @@ async function displayPopularMovies() {
 // Display popular TVshows
 async function displayPopularShow() {
   const {results} = await fetchAPIData('tv/popular')
-  console.log(results);
   
   results.forEach(show =>{
       const div = document.createElement('div')
@@ -307,18 +304,14 @@ function init(){
             break;
         case '/movie-details.html':
             displayMovieDetails()
-            console.log("Movie details");
             break
         case '/shows.html':
             displayPopularShow()
-            console.log("Shows details");
             break
         case '/tv-details.html':
             displayShowDetails()
-            console.log("ShowsTV details");
             break
         case '/search.html':
-            console.log("search info");
             break
         }
     HighlightActiveLink()
